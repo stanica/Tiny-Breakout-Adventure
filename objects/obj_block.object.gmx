@@ -45,9 +45,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>i = instance_create(x-7, y-20, obj_damage);
-i.amount = 5;
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
