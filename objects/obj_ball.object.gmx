@@ -30,14 +30,16 @@ health = 30;
 lives = 3;
 damage = 10;
 defense = 3;
+toEnemy = 0;
+toPlayer = 0;
 
-image_xscale = 0.0625;
-image_yscale = 0.0625;
+//image_xscale = 0.0625;
+//image_yscale = 0.0625;
 
 var fixture = physics_fixture_create();
 physics_fixture_set_circle_shape(fixture, sprite_width/2);
 physics_fixture_set_density(fixture, 0.1);
-physics_fixture_set_restitution(fixture, 1);
+physics_fixture_set_restitution(fixture, 1.01);
 physics_fixture_set_linear_damping(fixture, 0);
 physics_fixture_set_angular_damping(fixture, 0);
 physics_fixture_set_friction(fixture, 0);
@@ -68,6 +70,34 @@ physics_fixture_delete(fixture);
             <string>if(global.state == "start"){
     phy_position_x = obj_paddle.phy_position_x;
     phy_position_y = obj_paddle.phy_position_y - 15;
+}
+if(phy_speed_x &gt; global.maxXSpeed){
+  phy_speed_x = global.maxXSpeed;
+}
+if(phy_speed_y &gt; global.maxYSpeed){
+  phy_speed_y = global.maxYSpeed;
+}
+
+if(phy_speed_y == 0 &amp;&amp; phy_position_y &lt; 100){
+  phy_speed_y = 2;
+}
+else if(phy_speed_y == 0 &amp;&amp; phy_position_y &gt;= 100){
+  phy_speed_y = -2;
+}
+
+//Fix movement that is too lateral or too vertical
+if(phy_speed_y &gt;= -1 &amp;&amp; phy_speed_y &lt;= 1){
+  phy_speed_y += sign(phy_speed_y) * 2;
+}
+if(phy_speed_x &gt;= -1 &amp;&amp; phy_speed_x &lt;=1){
+  phy_speed_x += sign(phy_speed_x) * 2;
+}
+
+if(image_xscale != 1){
+  image_xscale = lerp(image_xscale, 1, 0.6);
+}
+if(image_yscale != 0.1){
+  image_yscale = lerp(image_yscale, 1, 0.6);
 }
 </string>
           </argument>
@@ -112,20 +142,33 @@ physics_fixture_delete(fixture);
           <argument>
             <kind>1</kind>
             <string>toEnemy = damage - other.defense;
-if(toEnemy &lt; 0){
+if(other.defense != 9999 &amp;&amp; toEnemy &lt; 0){
   toEnemy = 1;
 }
+else if(other.defense == 9999){
+  toEnemy = 0;
+}
+
 toPlayer = other.damage - defense;
 if(toPlayer &lt; 0){
-  toPlayer = 1;
+  toPlayer = 0;
 }
 other.hp -= toEnemy;
 health -= toPlayer;
-i = instance_create(other.x-7, other.y-20, obj_damage);
-i.amount = -toPlayer;
+
+ds_list_add(obj_log.log, 'You hit ' + string(other.name) + ' for ' + string(toEnemy));
+obj_log.index ++;
+ds_list_add(obj_log.log, string(other.name) + ' hit you for ' + string(toPlayer));
+obj_log.index ++;
 
 i = instance_create(other.x-7, other.y-20, obj_damage);
+i.type = 'enemy';
+i.amount = toPlayer;
+
+i = instance_create(other.x-7, other.y-20, obj_damage);
+i.type = 'player';
 i.amount = toEnemy;
+
 </string>
           </argument>
         </arguments>
@@ -198,6 +241,30 @@ i.amount = toEnemy;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>other.image_yscale = 0.07;
+other.image_xscale = 0.12;
+image_xscale = 1.2;
+image_yscale = 0.8;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -217,7 +284,10 @@ i.amount = toEnemy;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(200, 10, 260, 20, health/maxHealth * 100, c_black, c_red, c_green, direction, true, true);
+draw_healthbar(217, 12, 262, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), direction, false, false);
+draw_healthbar(218, 16, 261, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), direction, false, false);
+//show_debug_message(phy_speed_x);
+//show_debug_message(phy_speed_y);
 </string>
           </argument>
         </arguments>

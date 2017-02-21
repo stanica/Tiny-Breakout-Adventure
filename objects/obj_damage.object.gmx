@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>amount = '';
 t = 0;
+type = '';
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,7 @@ t = 0;
           <argument>
             <kind>1</kind>
             <string>if(image_alpha &gt;= 0){
-  image_alpha -= 0.05;
+  image_alpha -= 0.025;
 }
 else {
   instance_destroy();
@@ -58,11 +59,11 @@ else {
 y-=2;
 
 t+=0.4
-if(amount &gt;= 0){
-    x += 5*(sin(t));
+if(type == 'player'){
+    x += 2.5*(sin(t));
 }
-else {
-    x += 5*(cos(t));
+else if(type == 'enemy'){
+    x += 2.5*(cos(t));
 }
 </string>
           </argument>
@@ -86,11 +87,11 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(amount &lt; 0){
-    draw_text_color(x,y,amount*-1,c_red,c_red,c_red,c_red,image_alpha);
+            <string>if(type == 'enemy'){
+    draw_text_outline(x,y,make_color_rgb(51,51,51), c_red,amount, image_alpha);
 }
-else {
-    draw_text_color(x,y,amount,c_green,c_green,c_green,c_green,image_alpha);
+else if(type == 'player') {
+    draw_text_outline(x,y,make_color_rgb(51,51,51), c_white,amount, image_alpha);
 }
 </string>
           </argument>

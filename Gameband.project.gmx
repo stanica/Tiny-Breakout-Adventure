@@ -7,14 +7,26 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_paddle</sprite>
-    <sprite>sprites\spr_ball</sprite>
+    <sprite>sprites\spr_ball2</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_blue</sprite>
+    <sprite>sprites\spr_heart</sprite>
+    <sprite>sprites\spr_gold</sprite>
+    <sprite>sprites\spr_ball</sprite>
+    <sprite>sprites\spr_dust</sprite>
+    <sprite>sprites\spr_chest</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\rogue_like</background>
+    <background>background\pixel_heart</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_text_outline.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_paddle</object>
     <object>objects\obj_ball</object>
@@ -23,7 +35,12 @@
     <object>objects\screenshake</object>
     <object>objects\obj_block</object>
     <object>objects\obj_blue</object>
+    <object>objects\obj_chest</object>
     <object>objects\obj_damage</object>
+    <object>objects\obj_heart</object>
+    <object>objects\obj_gold</object>
+    <object>objects\obj_dust</object>
+    <object>objects\obj_log</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
