@@ -61,7 +61,7 @@ instance_create(room_width/2, 255, obj_ball);</code>
     <instance objName="obj_blue" x="200" y="56" name="inst_43DC6773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blue" x="248" y="56" name="inst_0093C3FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="160" y="16" name="inst_9334BBC7" locked="0" code="" scaleX="8.25" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_heart" x="200" y="8" name="inst_BF175AB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_heart" x="216" y="8" name="inst_BF175AB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gold" x="40" y="8" name="inst_ECE8EEC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chest" x="176" y="80" name="inst_CA98BEAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chest" x="128" y="80" name="inst_D015FFFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -648,9 +648,9 @@ instance_create(room_width/2, 255, obj_ball);</code>
     <tile bgName="rogue_like" x="224" y="80" w="16" h="16" xo="51" yo="170" id="10001256" name="inst_F3E93283" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="120" y="80" w="16" h="16" xo="255" yo="153" id="10001305" name="inst_139DA770" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="144" y="80" w="16" h="16" xo="255" yo="153" id="10001306" name="inst_74B2D65D" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="216" y="8" w="16" h="16" xo="510" yo="442" id="10001307" name="inst_F0CB61A9" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="232" y="8" w="16" h="16" xo="527" yo="442" id="10001308" name="inst_C015B66A" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="248" y="8" w="16" h="16" xo="544" yo="442" id="10001309" name="inst_A5431B34" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="232" y="8" w="16" h="16" xo="510" yo="442" id="10001307" name="inst_F0CB61A9" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="248" y="8" w="16" h="16" xo="527" yo="442" id="10001308" name="inst_C015B66A" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="264" y="8" w="16" h="16" xo="544" yo="442" id="10001309" name="inst_A5431B34" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="&lt;undefined&gt;" x="184" y="8" w="23" h="23" xo="299" yo="276" id="10001310" name="inst_29F311C2" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>-1</PhysicsWorld>

@@ -284,8 +284,8 @@ image_yscale = 0.8;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(217, 12, 262, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), direction, false, false);
-draw_healthbar(218, 16, 261, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), direction, false, false);
+draw_healthbar(233, 12, 278, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), direction, false, false);
+draw_healthbar(234, 16, 277, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), direction, false, false);
 //show_debug_message(phy_speed_x);
 //show_debug_message(phy_speed_y);
 </string>
