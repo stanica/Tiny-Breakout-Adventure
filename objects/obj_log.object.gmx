@@ -78,6 +78,7 @@ index = 0;
           <argument>
             <kind>1</kind>
             <string>draw_set_color(make_colour_rgb(51,51,51));
+draw_set_font(font0);
 for(i=index; i&lt;index+2; i++){
   draw_text_transformed(38,290 + (14*(i-index)),ds_list_find_value(log,i), 1, 1, 0);
 }

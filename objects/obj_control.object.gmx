@@ -32,6 +32,11 @@ global.shakeIntensity = 2;
 global.maxXSpeed = 6;
 global.maxYSpeed = 6;
 global.levelBlocks = -100;
+global.level = 1;
+global.experience = 0;
+global.level_font = font_add_sprite_ext(spr_level_font, "1234567890", true, 0);
+global.skillPoints = 0;
+
 </string>
           </argument>
         </arguments>

@@ -15,17 +15,28 @@
     <sprite>sprites\spr_ball</sprite>
     <sprite>sprites\spr_dust</sprite>
     <sprite>sprites\spr_chest</sprite>
+    <sprite>sprites\spr_exp_hud</sprite>
+    <sprite>sprites\spr_exp_bar</sprite>
+    <sprite>sprites\spr_level_font</sprite>
+    <sprite>sprites\spr_pause</sprite>
+    <sprite>sprites\spr_darken</sprite>
+    <sprite>sprites\spr_arrows</sprite>
+    <sprite>sprites\spr_small_arrows</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\rogue_like</background>
-    <background>background\pixel_heart</background>
+    <background>background\objects</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_text_outline.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\blur.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_paddle</object>
@@ -41,9 +52,18 @@
     <object>objects\obj_gold</object>
     <object>objects\obj_dust</object>
     <object>objects\obj_log</object>
+    <object>objects\obj_exp_hud</object>
+    <object>objects\obj_exp_bar</object>
+    <object>objects\obj_pause</object>
+    <object>objects\obj_background</object>
+    <object>objects\obj_resume</object>
+    <object>objects\obj_darken</object>
+    <object>objects\obj_flee</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
+    <room>rooms\rm_level</room>
+    <room>rooms\rm_base</room>
+    <room>rooms\rm_pause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

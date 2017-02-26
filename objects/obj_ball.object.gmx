@@ -85,6 +85,10 @@ else if(phy_speed_y == 0 &amp;&amp; phy_position_y &gt;= 100){
   phy_speed_y = -2;
 }
 
+if((phy_speed_x &lt; 5 &amp;&amp; phy_speed_x &gt; 0) || (phy_speed_x &gt; -5 &amp;&amp; phy_speed_x &lt; 0)){
+  phy_speed_x = sign(phy_speed_x) * 5;
+}
+
 //Fix movement that is too lateral or too vertical
 if(phy_speed_y &gt;= -1 &amp;&amp; phy_speed_y &lt;= 1){
   phy_speed_y += sign(phy_speed_y) * 2;
@@ -284,6 +288,7 @@ image_yscale = 0.8;
           <argument>
             <kind>1</kind>
             <string>draw_self();
+draw_set_font(font0);
 draw_healthbar(233, 12, 278, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), direction, false, false);
 draw_healthbar(234, 16, 277, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), direction, false, false);
 //show_debug_message(phy_speed_x);

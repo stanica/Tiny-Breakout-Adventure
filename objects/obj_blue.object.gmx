@@ -53,6 +53,7 @@ name = "Blue Block";
           <argument>
             <kind>1</kind>
             <string>global.levelBlocks -= 1;
+global.experience += 25;
 instance_create(x, y, obj_dust);
 </string>
           </argument>
