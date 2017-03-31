@@ -51,6 +51,7 @@
             <string>nextLevel = global.level + 1;
 nextExp = (power(nextLevel,2)+nextLevel)/2*100-(nextLevel*100);
 percentage = lerp(percentage,global.experience / nextExp,0.25);
+
 global.level = floor((sqrt(100*(2*global.experience+25))+50)/100);
 if (global.level == nextLevel){
   percentage = 0;

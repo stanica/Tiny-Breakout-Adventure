@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = global.shakeDuration;
+            <string>dir = '';
+alarm[0] = global.shakeDuration;
 </string>
           </argument>
         </arguments>
@@ -73,8 +74,14 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_xview = random_range(-global.shakeIntensity, global.shakeIntensity);
-view_yview = random_range(-global.shakeIntensity, global.shakeIntensity);
+            <string>if(dir == 1)
+  view_xview = random_range(-global.shakeIntensity, global.shakeIntensity);
+else if(dir == 2)
+  view_yview = random_range(-global.shakeIntensity, global.shakeIntensity);
+else {
+  view_xview = random_range(-global.shakeIntensity, global.shakeIntensity);
+  view_yview = random_range(-global.shakeIntensity, global.shakeIntensity);
+}
 </string>
           </argument>
         </arguments>

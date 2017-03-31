@@ -39,6 +39,59 @@ physics_fixture_set_angular_damping(fixture, 100);
 physics_fixture_set_friction(fixture, 0);
 physics_fixture_bind(fixture, id);
 physics_fixture_delete(fixture);
+
+instance_create(x,y,obj_eye_left);
+instance_create(x,y,obj_eye_right);
+instance_create(x,y,obj_pupil_left);
+instance_create(x,y,obj_pupil_right);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_eye_left.x = phy_position_x - 10;
+obj_eye_right.x = phy_position_x + 10;
+
+obj_pupil_left.x = obj_eye_left.x;
+obj_pupil_right.x = obj_eye_right.x;
+
+//Left Eye
+dir_to_mouse = point_direction(obj_pupil_left.x, obj_pupil_left.y, obj_ball.x, obj_ball.y);
+
+distance_to_mouse = point_distance(obj_pupil_left.x, obj_pupil_left.y, obj_ball.x, obj_ball.y);
+
+normalize_distance = clamp(distance_to_mouse / 120,0,1);
+
+obj_pupil_left.x = obj_eye_left.x + lengthdir_x(normalize_distance*3, dir_to_mouse);
+obj_pupil_left.y = obj_eye_left.y + lengthdir_y(normalize_distance*3, dir_to_mouse);
+
+
+//Right eye
+dir_to_mouse = point_direction(obj_pupil_right.x, obj_pupil_right.y, obj_ball.x, obj_ball.y);
+
+distance_to_mouse = point_distance(obj_pupil_right.x, obj_pupil_right.y, obj_ball.x, obj_ball.y);
+
+normalize_distance = clamp(distance_to_mouse / 120,0,1);
+
+obj_pupil_right.x = obj_eye_right.x + lengthdir_x(normalize_distance*3, dir_to_mouse);
+obj_pupil_right.y = obj_eye_right.y + lengthdir_y(normalize_distance*3, dir_to_mouse);
 </string>
           </argument>
         </arguments>
@@ -88,7 +141,7 @@ phy_position_x = obj_ball.phy_position_x;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_wall_right">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -105,7 +158,29 @@ phy_position_x = obj_ball.phy_position_x;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Collision</string>
+            <string>collision</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall_left">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>collision</string>
           </argument>
         </arguments>
       </action>

@@ -22,10 +22,13 @@
     <sprite>sprites\spr_darken</sprite>
     <sprite>sprites\spr_arrows</sprite>
     <sprite>sprites\spr_small_arrows</sprite>
+    <sprite>sprites\spr_eye</sprite>
+    <sprite>sprites\spr_pupil</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\rogue_like</background>
     <background>background\objects</background>
+    <background>background\darken</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -42,7 +45,9 @@
     <object>objects\obj_paddle</object>
     <object>objects\obj_ball</object>
     <object>objects\obj_control</object>
-    <object>objects\obj_wall</object>
+    <object>objects\obj_wall_top</object>
+    <object>objects\obj_wall_left</object>
+    <object>objects\obj_wall_right</object>
     <object>objects\screenshake</object>
     <object>objects\obj_block</object>
     <object>objects\obj_blue</object>
@@ -59,6 +64,13 @@
     <object>objects\obj_resume</object>
     <object>objects\obj_darken</object>
     <object>objects\obj_flee</object>
+    <object>objects\obj_particle_top</object>
+    <object>objects\obj_particle_left</object>
+    <object>objects\obj_particle_right</object>
+    <object>objects\obj_eye_left</object>
+    <object>objects\obj_eye_right</object>
+    <object>objects\obj_pupil_left</object>
+    <object>objects\obj_pupil_right</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level</room>

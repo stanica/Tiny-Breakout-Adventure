@@ -30,6 +30,9 @@ hp = 5;
 damage = 4;
 defense = 2;
 name = "Blue Block";
+
+yy = '';
+xx = '';
 </string>
           </argument>
         </arguments>
@@ -79,6 +82,22 @@ instance_create(x, y, obj_dust);
             <kind>1</kind>
             <string>if (hp &lt;= 0){
   instance_destroy();
+}
+
+if(phy_position_y &lt; yy){
+ phy_position_y = lerp(phy_position_y,yy,choose(0.1,0.2));
+ //phy_position_y += 10;
+}
+
+if(phy_position_x &lt; xx){
+  phy_position_x = lerp(phy_position_x,xx,choose(0.2));
+}
+
+if(image_xscale != 1){
+  image_xscale = lerp(image_xscale, 1, 0.15);
+}
+if(image_yscale != 1){
+  image_yscale = lerp(image_yscale, 1, 0.15);
 }
 </string>
           </argument>

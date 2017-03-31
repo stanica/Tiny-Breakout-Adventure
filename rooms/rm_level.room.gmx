@@ -3,15 +3,31 @@
   <caption></caption>
   <width>320</width>
   <height>320</height>
-  <vsnap>4</vsnap>
-  <hsnap>4</hsnap>
+  <vsnap>8</vsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>instance_create(room_width/2, 270, obj_paddle);
-instance_create(room_width/2, 255, obj_ball);</code>
+instance_create(room_width/2, 255, obj_ball);
+
+var t = 1;
+for(var i=0; i&lt;5; i++){
+  for(var j=0; j&lt;6; j++){
+    var loc = '';
+    t++;
+    loc[0] = 68 + 36*j;
+    loc[1] = 52 + 20*i;
+    with(instance_create(loc[0], -100, obj_blue)){
+      phy_position_y = -100 - (10 * t);
+      yy = loc[1];
+      //phy_position_x = 0;
+      xx = loc[0];
+    }
+  }
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>0</clearViewBackground>
   <clearDisplayBuffer>0</clearDisplayBuffer>
@@ -53,25 +69,15 @@ instance_create(room_width/2, 255, obj_ball);</code>
   </views>
   <instances>
     <instance objName="obj_control" x="144" y="144" name="inst_AE1705C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="16" y="160" name="inst_EF88DBD2" locked="0" code="" scaleX="1" scaleY="8.28125" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="304" y="160" name="inst_4B62F213" locked="0" code="" scaleX="1" scaleY="8.25" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="56" y="56" name="inst_C790E775" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="104" y="56" name="inst_63D0AB25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="152" y="56" name="inst_C8A87F48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="200" y="56" name="inst_43DC6773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="248" y="56" name="inst_0093C3FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="160" y="16" name="inst_9334BBC7" locked="0" code="" scaleX="8.25" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_top" x="160" y="16" name="inst_9334BBC7" locked="0" code="" scaleX="8.25" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_heart" x="216" y="8" name="inst_BF175AB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gold" x="128" y="8" name="inst_ECE8EEC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_log" x="40" y="296" name="inst_0BF130DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_exp_hud" x="71" y="16" name="inst_D4E52C88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_exp_bar" x="52" y="14" name="inst_B48E758A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="80" y="80" name="inst_F0199A02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="128" y="80" name="inst_0126E69C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="176" y="80" name="inst_FFBCC64D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="224" y="80" name="inst_3E3C3872" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blue" x="192" y="56" name="inst_ACAE9A64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pause" x="304" y="20" name="inst_C5527D65" locked="0" code="" scaleX="0.660000026226044" scaleY="0.591836750507355" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_left" x="16" y="176" name="inst_D2081CB0" locked="0" code="" scaleX="1.09677422046661" scaleY="9.15625" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_right" x="304" y="176" name="inst_E8BBC071" locked="0" code="" scaleX="0.969696998596191" scaleY="9.1875" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="rogue_like" x="0" y="0" w="16" h="16" xo="136" yo="272" id="10001422" name="inst_BDB5CB4A" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -88,8 +94,6 @@ instance_create(room_width/2, 255, obj_ball);</code>
     <tile bgName="rogue_like" x="176" y="0" w="16" h="16" xo="136" yo="272" id="10001433" name="inst_5340E50E" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="192" y="0" w="16" h="16" xo="136" yo="272" id="10001434" name="inst_0142179A" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="208" y="0" w="16" h="16" xo="136" yo="272" id="10001435" name="inst_1D283887" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="224" y="0" w="16" h="16" xo="136" yo="272" id="10001436" name="inst_2195D76F" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="240" y="0" w="16" h="16" xo="136" yo="272" id="10001437" name="inst_76DB0593" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="256" y="0" w="16" h="16" xo="136" yo="272" id="10001438" name="inst_1A4003E2" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="272" y="0" w="16" h="16" xo="136" yo="272" id="10001439" name="inst_7AF66259" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="288" y="0" w="16" h="16" xo="136" yo="272" id="10001440" name="inst_B05C5FD3" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -278,6 +282,8 @@ instance_create(room_width/2, 255, obj_ball);</code>
     <tile bgName="rogue_like" x="272" y="304" w="16" h="16" xo="136" yo="272" id="10001646" name="inst_7A2ADE51" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="288" y="304" w="16" h="16" xo="136" yo="272" id="10001647" name="inst_7021B322" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="304" y="304" w="16" h="16" xo="136" yo="272" id="10001648" name="inst_1B7FED5E" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="240" y="0" w="16" h="16" xo="136" yo="272" id="10002272" name="inst_2A351A00" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="224" y="0" w="16" h="16" xo="136" yo="272" id="10002273" name="inst_FA8C9244" depth="101" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="32" y="32" w="16" h="16" xo="34" yo="255" id="10000433" name="inst_3166299E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="32" y="272" w="16" h="16" xo="34" yo="289" id="10000434" name="inst_4D1A2AE8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="272" y="272" w="16" h="16" xo="68" yo="289" id="10000435" name="inst_534E2EAB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -654,10 +660,11 @@ instance_create(room_width/2, 255, obj_ball);</code>
     <tile bgName="rogue_like" x="224" y="80" w="16" h="16" xo="51" yo="170" id="10001256" name="inst_F3E93283" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="120" y="80" w="16" h="16" xo="255" yo="153" id="10001305" name="inst_139DA770" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="144" y="80" w="16" h="16" xo="255" yo="153" id="10001306" name="inst_74B2D65D" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="rogue_like" x="232" y="8" w="16" h="16" xo="510" yo="442" id="10001307" name="inst_F0CB61A9" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="248" y="8" w="16" h="16" xo="527" yo="442" id="10001308" name="inst_C015B66A" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="rogue_like" x="264" y="8" w="16" h="16" xo="544" yo="442" id="10001309" name="inst_A5431B34" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="&lt;undefined&gt;" x="184" y="8" w="23" h="23" xo="299" yo="276" id="10001310" name="inst_29F311C2" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="rogue_like" x="232" y="8" w="16" h="16" xo="510" yo="442" id="10002277" name="inst_6D2E883B" depth="98" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="darken" x="234" y="15" w="44" h="16" xo="0" yo="0" id="10002283" name="inst_B083B9A0" depth="-100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

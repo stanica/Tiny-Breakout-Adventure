@@ -85,7 +85,7 @@ else if(phy_speed_y == 0 &amp;&amp; phy_position_y &gt;= 100){
   phy_speed_y = -2;
 }
 
-if((phy_speed_x &lt; 5 &amp;&amp; phy_speed_x &gt; 0) || (phy_speed_x &gt; -5 &amp;&amp; phy_speed_x &lt; 0)){
+if((phy_speed_x &lt; 6 &amp;&amp; phy_speed_x &gt; 0) || (phy_speed_x &gt; -6 &amp;&amp; phy_speed_x &lt; 0)){
   phy_speed_x = sign(phy_speed_x) * 5;
 }
 
@@ -145,7 +145,12 @@ if(image_yscale != 0.1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>toEnemy = damage - other.defense;
+            <string>if(global.screenShake){
+  global.shakeDuration = 2;
+  instance_create(0,0,screenshake);
+}
+
+toEnemy = damage - other.defense;
 if(other.defense != 9999 &amp;&amp; toEnemy &lt; 0){
   toEnemy = 1;
 }
@@ -178,7 +183,7 @@ i.amount = toEnemy;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_wall_right">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -219,6 +224,101 @@ i.amount = toEnemy;
   global.shakeDuration = 2;
   instance_create(0,0,screenshake);
 }
+instance_create(x+5,y,obj_particle_right);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall_left">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Collision</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.screenShake){
+  global.shakeDuration = 2;
+  instance_create(0,0,screenshake);
+}
+instance_create(x-5,y,obj_particle_left);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall_top">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Collision</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.screenShake){
+  global.shakeDuration = 2;
+  instance_create(0,0,screenshake);
+}
+instance_create(x,y-5,obj_particle_top);
 </string>
           </argument>
         </arguments>
@@ -289,8 +389,8 @@ image_yscale = 0.8;
             <kind>1</kind>
             <string>draw_self();
 draw_set_font(font0);
-draw_healthbar(233, 12, 278, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), direction, false, false);
-draw_healthbar(234, 16, 277, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), direction, false, false);
+draw_healthbar(233, 12, 278, 19, health/maxHealth * 100, c_black, c_red, make_color_rgb(131,204,20), 0, false, false);
+//draw_healthbar(234, 16, 277, 18, health/maxHealth * 100, c_black, c_red, make_color_rgb(119,186,20), 0, false, false);
 //show_debug_message(phy_speed_x);
 //show_debug_message(phy_speed_y);
 </string>
