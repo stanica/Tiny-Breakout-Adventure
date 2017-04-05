@@ -177,7 +177,6 @@ i.amount = toPlayer;
 i = instance_create(other.x-7, other.y-20, obj_damage);
 i.type = 'player';
 i.amount = toEnemy;
-
 </string>
           </argument>
         </arguments>
@@ -361,10 +360,19 @@ instance_create(x,y-5,obj_particle_top);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.image_yscale = 0.07;
-other.image_xscale = 0.12;
+            <string>//other.image_yscale = 0.07;
+//other.image_xscale = 0.12;
 image_xscale = 1.2;
 image_yscale = 0.8;
+
+//obj_eye_left.image_yscale = 0.1;
+//obj_eye_right.image_yscale = 0.1;
+obj_pupil_left.image_yscale = 0.1;
+obj_pupil_left.image_xscale = 1.25;
+obj_pupil_right.image_yscale = 0.1;
+obj_pupil_right.image_xscale = 1.25;
+
+obj_mouth.image_index = 1;
 </string>
           </argument>
         </arguments>

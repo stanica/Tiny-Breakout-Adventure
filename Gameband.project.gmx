@@ -24,6 +24,7 @@
     <sprite>sprites\spr_small_arrows</sprite>
     <sprite>sprites\spr_eye</sprite>
     <sprite>sprites\spr_pupil</sprite>
+    <sprite>sprites\spr_mouth</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\rogue_like</background>
@@ -71,6 +72,7 @@
     <object>objects\obj_eye_right</object>
     <object>objects\obj_pupil_left</object>
     <object>objects\obj_pupil_right</object>
+    <object>objects\obj_mouth</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level</room>
