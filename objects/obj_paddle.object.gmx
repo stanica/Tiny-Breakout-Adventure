@@ -29,6 +29,7 @@
 image_yscale = 0.10;
 move_speed = 4.5;
 gold = 0;
+autoMove = false;
 
 var fixture = physics_fixture_create();
 physics_fixture_set_box_shape(fixture, sprite_width / 2, sprite_height / 2);
@@ -126,7 +127,9 @@ obj_mouth.y = phy_position_y+2;
 else if(keyboard_check(ord("D")) &amp;&amp; x+sprite_width/2 &lt; 280){
     physics_apply_impulse(x, y, lengthdir_x(20, 0), lengthdir_y(0, 0));
 }
-
+if(keyboard_check(ord("F"))){
+  autoMove = !autoMove;
+}
 if(phy_position_y != 270){
     phy_position_y = 270;
 }
@@ -141,7 +144,8 @@ if(image_yscale != 0.1){
   image_yscale = lerp(image_yscale, 0.1, 0.6);
 }
 
-phy_position_x = obj_ball.phy_position_x;
+if(autoMove)
+  phy_position_x = obj_ball.phy_position_x;
 </string>
           </argument>
         </arguments>
