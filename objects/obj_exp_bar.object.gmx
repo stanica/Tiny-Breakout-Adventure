@@ -49,8 +49,9 @@
           <argument>
             <kind>1</kind>
             <string>nextLevel = global.level + 1;
+currentExp = (power(global.level,2)+global.level)/2*100-(global.level*100);
 nextExp = (power(nextLevel,2)+nextLevel)/2*100-(nextLevel*100);
-percentage = lerp(percentage,global.experience / nextExp,0.25);
+percentage = lerp(percentage,(global.experience - currentExp) / (nextExp - currentExp),0.25);
 
 global.level = floor((sqrt(100*(2*global.experience+25))+50)/100);
 if (global.level == nextLevel){

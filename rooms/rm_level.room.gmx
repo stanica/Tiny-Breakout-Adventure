@@ -13,6 +13,9 @@
   <code>instance_create(room_width/2, 270, obj_paddle);
 instance_create(room_width/2, 255, obj_ball);
 
+global.maxBlocks = 30;
+global.canMove = false;
+
 var t = 1;
 for(var i=0; i&lt;5; i++){
   for(var j=0; j&lt;6; j++){

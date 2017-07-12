@@ -25,14 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = 0.10;
-image_yscale = 0.10;
+            <string>//image_xscale = 0.10;
+//image_yscale = 0.10;
 move_speed = 4.5;
 gold = 0;
 autoMove = false;
 
 var fixture = physics_fixture_create();
-physics_fixture_set_box_shape(fixture, sprite_width / 2, sprite_height / 2);
+physics_fixture_set_polygon_shape(fixture);
+physics_fixture_add_point(fixture, -25,-4);
+physics_fixture_add_point(fixture, 0, -10);
+physics_fixture_add_point(fixture, 25, -4);
 physics_fixture_set_density(fixture, 0.8);
 physics_fixture_set_restitution(fixture, 0);
 physics_fixture_set_linear_damping(fixture, 4);
@@ -72,9 +75,9 @@ instance_create(x,y,obj_mouth);
 //obj_eye_right.x = phy_position_x + 10;
 
 obj_pupil_left.x = phy_position_x - 10;
-obj_pupil_left.y = phy_position_y;
+obj_pupil_left.y = phy_position_y + 3;
 obj_pupil_right.x = phy_position_x + 10;
-obj_pupil_right.y = phy_position_y;
+obj_pupil_right.y = phy_position_y + 3;
 
 //Left Eye
 dir_to_ball = point_direction(obj_pupil_left.x, obj_pupil_left.y, obj_ball.x, obj_ball.y);
@@ -98,7 +101,7 @@ obj_pupil_right.x += lengthdir_x(normalize_distance*3, dir_to_ball);
 obj_pupil_right.y += lengthdir_y(normalize_distance*3, dir_to_ball);
 
 obj_mouth.x = phy_position_x;
-obj_mouth.y = phy_position_y+2;
+obj_mouth.y = phy_position_y+7;
 </string>
           </argument>
         </arguments>
@@ -122,10 +125,10 @@ obj_mouth.y = phy_position_y+2;
           <argument>
             <kind>1</kind>
             <string>if(keyboard_check(ord("A")) &amp;&amp; x-sprite_width/2 &gt; 40){
-    physics_apply_impulse(x, y, lengthdir_x(20, 180), lengthdir_y(0, 0));
+    physics_apply_impulse(x, y, lengthdir_x(7, 180), lengthdir_y(0, 0));
 }
 else if(keyboard_check(ord("D")) &amp;&amp; x+sprite_width/2 &lt; 280){
-    physics_apply_impulse(x, y, lengthdir_x(20, 0), lengthdir_y(0, 0));
+    physics_apply_impulse(x, y, lengthdir_x(7, 0), lengthdir_y(0, 0));
 }
 if(keyboard_check(ord("F"))){
   autoMove = !autoMove;
@@ -137,11 +140,11 @@ if(phy_rotation != 0){
     phy_rotation = 0;
 }
 
-if(image_xscale != 0.1){
-  image_xscale = lerp(image_xscale, 0.1, 0.6);
+if(image_xscale != 1){
+  image_xscale = lerp(image_xscale, 1, 0.6);
 }
-if(image_yscale != 0.1){
-  image_yscale = lerp(image_yscale, 0.1, 0.6);
+if(image_yscale != 1){
+  image_yscale = lerp(image_yscale, 1, 0.6);
 }
 
 if(autoMove)
@@ -216,6 +219,8 @@ if(autoMove)
   global.shakeDuration = 5;
   instance_create(0,0,screenshake);
 }
+image_xscale = 1.2;
+image_yscale = 0.8;
 </string>
           </argument>
         </arguments>

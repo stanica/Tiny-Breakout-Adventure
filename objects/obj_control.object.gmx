@@ -36,7 +36,9 @@ global.level = 1;
 global.experience = 0;
 global.level_font = font_add_sprite_ext(spr_level_font, "1234567890", true, 0);
 global.skillPoints = 0;
+global.enableDebug = false;
 
+render_flags = phy_debug_render_shapes | phy_debug_render_joints | phy_debug_render_coms | phy_debug_render_obb;
 </string>
           </argument>
         </arguments>
@@ -62,6 +64,10 @@ global.skillPoints = 0;
             <string>if(global.levelBlocks == 0){
   game_restart();
 }
+
+if(keyboard_check(ord("P"))){
+    global.enableDebug = true;
+}
 </string>
           </argument>
         </arguments>
@@ -84,7 +90,7 @@ global.skillPoints = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.state == "start"){
+            <string>if(global.state == "start" &amp;&amp; global.canMove){
     global.state = "playing";
     with(obj_ball){
         physics_apply_impulse(x, y, lengthdir_x(1, choose(30,45,60,120,135,150)), lengthdir_y(1, choose(30,45,60,120,135,150)));
@@ -113,6 +119,10 @@ global.skillPoints = 0;
           <argument>
             <kind>1</kind>
             <string>draw_set_font(font0);
+
+if(global.enableDebug){
+    physics_world_draw_debug(render_flags);
+}
 </string>
           </argument>
         </arguments>
